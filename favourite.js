@@ -8,10 +8,6 @@ logo.addEventListener("click", () => {
   window.location = `index.html`;
 });
 
-
-
-
-
 function checkNull() {
   if (localStorage.length < 1) {
     empty.innerText = "No Fav Item Added";
@@ -22,12 +18,11 @@ function checkNull() {
 }
 
 
-
 document.addEventListener("DOMContentLoaded", () => {
   const items = { ...localStorage };
   const favValues = Object.keys(items).map((key) => JSON.parse(items[key]));
   //console.log(favValues);
-  localStorage.removeItem("superhero");
+  //localStorage.removeItem("superhero");
   favValues.forEach((obj) => {
     printFav(obj);
   });
@@ -43,9 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-
-
-
 function printFav(items) {
   console.log(items);
   const singleOption = document.createElement("div");
@@ -57,16 +49,35 @@ function printFav(items) {
   image.src = `${items.thumbnail.path}.${items.thumbnail.extension}`;
   const button = document.createElement("button");
   button.innerText = "Remove";
-  button.addEventListener("click", () => {
+  button.addEventListener("click", (e) => {
+    e.preventDefault();
     singleOption.style.display = "none";
     localStorage.removeItem(`${items.name}`);
     checkNull();
   });
 
-  
   button.classList.add("button");
   favOptionsAvailable.appendChild(singleOption);
   singleOption.appendChild(image);
   singleOption.appendChild(name);
   singleOption.appendChild(button);
+
+  image.addEventListener('click',(e)=>{
+    e.preventDefault();
+    passValue(items);
+  });
+
+  name.addEventListener('click',(e)=>{
+    e.preventDefault();
+    passValue(items);
+  });
+
+}
+
+
+
+function passValue(superhero) {
+  localStorage.setItem(`superhero`, JSON.stringify(superhero));
+  //console.log(superhero.name);
+  window.location = 'superhero.html';
 }

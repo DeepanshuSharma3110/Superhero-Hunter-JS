@@ -5,6 +5,8 @@ logoImg.addEventListener("click", () => {
 });
 
 const description = document.getElementById("description");
+
+
 document.addEventListener("DOMContentLoaded", () => {
   const storedSuperhero = localStorage.getItem("superhero");
 
@@ -36,5 +38,22 @@ function displaySuperhero(superhero) {
       card.appendChild(moviedescription);
     }
   });
+  const button = document.createElement('button');
+  button.innerText='Add to Fav';
+  button.classList.add('button');
+  button.style.display='block';
+  button.addEventListener('click',()=>{
+    passValue(superhero);
+    button.style.display='none';
+  });
+  card.appendChild(button);
+}
+
+
+function passValue(superhero) {
+  localStorage.setItem(superhero.name, JSON.stringify(superhero));
+  //console.log(superhero.name);
+ // window.location = 'superhero.html';
 
 }
+

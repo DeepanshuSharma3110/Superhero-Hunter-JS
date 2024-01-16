@@ -40,3 +40,21 @@
     width: 200px;
     height: 200px;
  }
+
+ 
+.button{
+    margin-top: 25px;
+    padding: 5px 15px;
+    background: none;
+    backdrop-filter: blur(8px);
+    color: white;
+    font-size: large;
+    width: 200px;
+    
+}
+
+
+.button:hover{
+    background-color:black;
+    color: white;
+}
