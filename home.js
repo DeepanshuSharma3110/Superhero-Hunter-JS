@@ -1,10 +1,10 @@
 const Ts = Date.now();
-const public = "94c4ba3ecf7833a711b07445fd9d6703";
+const publicKey = "94c4ba3ecf7833a711b07445fd9d6703";
 const private = "3ef08796910e331a5cc4e3c4c86939dd176c0b0b";
-let hash = CryptoJS.MD5(Ts + private + public).toString();
-const url = `https://gateway.marvel.com/v1/public/characters?ts=${Ts}&apikey=${public}&hash=${hash}`;
+let hash = CryptoJS.MD5(Ts + private + publicKey).toString();
 
 const favouriteButton = document.getElementById('favouriteButton');
+
 favouriteButton.addEventListener('click',()=>{
   window.location=`favourite.html`;
 });
@@ -12,35 +12,34 @@ favouriteButton.addEventListener('click',()=>{
 // Define singleOption globally
 const singleOption = document.createElement("div");
 singleOption.classList.add("singleOption");
+const optionsAvailable = document.getElementById("optionsAvailable");
+const searchBox = document.getElementById("searchBox");
 
-document.addEventListener("DOMContentLoaded", () => {
-  createList();
+
+// SEARCH BAR EVENT
+searchBox.addEventListener("keydown", (event) => {
+  if (event.keyCode == 13 && searchBox.value!=='') {
+    const searchTerm = searchBox.value.toLowerCase();
+    createList(searchTerm);
+      optionsAvailable.innerHTML='';
+      searchBox.value='';
+  }
 });
 
-async function createList() {
+
+
+
+async function createList(query) {
+  const url = `https://gateway.marvel.com/v1/public/characters?ts=${Ts}&apikey=${publicKey}&hash=${hash}&nameStartsWith=${query}`
   const response = await fetch(url);
   let data = await response.json();
-  data = data.data.results;
-
-  const optionsAvailable = document.getElementById("optionsAvailable");
-  const searchBox = document.getElementById("searchBox");
-  searchBox.addEventListener("keydown", (event) => {
-    if (event.keyCode == 13 && searchBox.value!=='') {
-      const searchTerm = searchBox.value.toLowerCase();
-        optionsAvailable.innerHTML='';
-      searchBox.value='';
-      data.forEach((obj) => {
-        if (obj.name.toLowerCase().includes(searchTerm)) {
-          createCard(obj);
-        }
-      });
-    }
+  data=data.data.results;
+  data.forEach((obj)=>{
+    createCard(obj);
   });
 }
 
 function createCard(url) {
-  // const form = document.createElement("form");
-  // form.action = "superHero.html";
   const singleOption = document.createElement("div");
   singleOption.classList.add("singleOption");
   singleOption.style.display='block';

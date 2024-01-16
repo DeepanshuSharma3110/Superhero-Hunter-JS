@@ -8,6 +8,10 @@ logo.addEventListener("click", () => {
   window.location = `index.html`;
 });
 
+
+
+
+
 function checkNull() {
   if (localStorage.length < 1) {
     empty.innerText = "No Fav Item Added";
@@ -16,6 +20,8 @@ function checkNull() {
     empty.style.display = "none";
   }
 }
+
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const items = { ...localStorage };
@@ -36,6 +42,10 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+
+
+
+
 function printFav(items) {
   console.log(items);
   const singleOption = document.createElement("div");
@@ -52,8 +62,9 @@ function printFav(items) {
     localStorage.removeItem(`${items.name}`);
     checkNull();
   });
-  button.classList.add("button");
 
+  
+  button.classList.add("button");
   favOptionsAvailable.appendChild(singleOption);
   singleOption.appendChild(image);
   singleOption.appendChild(name);
