@@ -1,5 +1,6 @@
 const logoImg = document.getElementById("logoImg");
 logoImg.addEventListener("click", () => {
+  localStorage.removeItem("superhero");
   window.location = "index.html";
 });
 

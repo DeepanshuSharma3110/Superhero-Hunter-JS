@@ -79,7 +79,8 @@ function createCard(url) {
 }
 
 function passValue(superhero) {
-  localStorage.setItem('superhero', JSON.stringify(superhero));
+  localStorage.setItem(`superhero`, JSON.stringify(superhero));
+  //console.log(superhero.name);
   window.location = 'superhero.html';
 }
 
