@@ -1,0 +1,122 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monaco, Consolas, Menlo, Courier, monospace;
+    line-height: 1.5em;
+}
+/* .border{
+    border: 2px solid black;
+} */
+#logoImg{
+    width: 100px;
+}
+#websitehedding, #favouriteButton, #logoImg{
+    display: inline-block;
+    margin: 15px;
+    text-align: center;
+}
+#favouriteButton{
+    font-size: large;
+    padding: 5px 35px;
+    background-color: antiquewhite;
+    border-radius: 25px;
+    border-top-right-radius: 0;
+    box-shadow: 10px 5px 5px grey;
+}
+#navBar{
+    
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
+    flex-direction: row;
+
+}
+
+
+#bodyArea{
+   min-height: 90vh;
+    width: 99vw;
+    background-color: black;
+}
+#container{
+    width: 75%;
+    margin: auto;
+    min-height: 80vh;
+    box-shadow: 10px 5px 5px grey;
+    background-color: white;
+    border-radius: 10px;
+    background-image: url("images/wallpaper.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    
+}
+
+
+#searchBox{
+    width: 60%;
+    height: 50px;
+    background:none;
+    border: 2px solid greenyellow;
+    box-shadow: 10px 5px 5px yellowgreen;
+    border-radius: 10px;
+    border-top-right-radius: 0;
+    margin-left: 20%;
+    margin-top: 5%;
+    padding: 3px 25px;
+    text-align: center;
+    box-sizing: border-box;
+    backdrop-filter: blur(8px);
+    color: white;
+    font-size: large;
+}
+
+.optionsAvailable{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+
+.singleOption{
+    width: 250px;
+    height: 250px;
+    margin: 10px 15px;
+    padding: 10px 15px;
+    backdrop-filter: blur(3px);
+    color: white;
+    font-size: large;
+    background-color: none;
+    display: inline-block;
+    text-align: center;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+.singleOption:hover{
+    border: 2px solid red;
+    backdrop-filter: blur(8px);
+}
+
+.cardImage{
+    width: 100px;
+    height: 100px;
+}
+
+.button{
+    margin-top: 25px;
+    padding: 5px 15px;
+    background: none;
+    backdrop-filter: blur(8px);
+    color: white;
+    font-size: large;
+    width: 200px;
+    
+}
+
+.button:hover{
+    background-color:black;
+    color: white;
+}

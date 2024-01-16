@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monaco, Consolas, Menlo, Courier, monospace;
+    line-height: 1.5em;
+}
+#logoImg{
+    width: 100px;
+}
+
+
+
+#bodyArea{
+    min-height: 90vh;
+     width: 99vw;
+     background-color: black;
+ }
+ #container{
+     width: 75%;
+     margin: auto;
+     min-height: 80vh;
+     box-shadow: 10px 5px 5px grey;
+     background-color: white;
+     border-radius: 10px;
+     background-image: url("images/wallpaper.jpg");
+     background-repeat: no-repeat;
+     background-size: cover;
+ }
+ .card{
+    padding: 20px 35px;
+    margin: auto;
+    width: 400px;
+    color: white;
+    text-align: center;
+    backdrop-filter: blur(8px);
+    border-radius: 50px;
+ }
+ .image{
+    width: 200px;
+    height: 200px;
+ }
